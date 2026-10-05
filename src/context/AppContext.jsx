@@ -448,6 +448,19 @@ export function AppProvider({ children }) {
       localStorage.setItem("s_token", idToken);
     }
     if (isSupabaseConfigured()) {
+      // Detects first-time users server-side and pings the admin on WhatsApp.
+      // Must finish before the upsert below so the "new user" check isn't raced.
+      if (idToken) {
+        try {
+          await fetch('/api/notify/new-user', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ idToken })
+          });
+        } catch (err) {
+          console.warn('New-user notify failed:', err);
+        }
+      }
       try {
         const { error } = await supabase.from('users').upsert({
           phone: cleanPhone,

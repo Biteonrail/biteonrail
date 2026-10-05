@@ -891,8 +891,8 @@ function MenuContent() {
 
       {/* Dynamic Station Selector Bar */}
       {!stationCode && (
-        <div className="bg-white rounded-[28px] border border-slate-200/80 p-5 sm:p-6 shadow-sm mb-8 flex flex-col md:flex-row md:items-center justify-between gap-5 relative overflow-hidden">
-          <div className="absolute top-0 left-0 bottom-0 w-2 bg-gradient-to-b from-rose-600 to-rose-500" />
+        <div className="bg-white rounded-[28px] border border-slate-200/80 p-5 sm:p-6 shadow-sm mb-8 flex flex-col md:flex-row md:items-center justify-between gap-5 relative">
+          <div className="absolute top-0 left-0 bottom-0 w-2 bg-gradient-to-b from-rose-600 to-rose-500 rounded-l-[28px]" />
 
           <div className="flex items-center gap-4">
             <div className="bg-rose-50 text-rose-600 p-3.5 rounded-2xl border border-rose-100 shrink-0 shadow-xs flex items-center justify-center">
